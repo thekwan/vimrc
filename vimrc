@@ -305,10 +305,15 @@ Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+"Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Git gutter (vim plugin for git diff display)
+Plugin 'airblade/vim-gitgutter'
+" Etc
+"Plugin 'nanotech/hellybeans.vim'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -329,9 +334,9 @@ filetype plugin indent on    " required
 " Vim에서 파일 탐색기를 사용할 수 있게 한다. - Nerd Tree
 Plugin 'The-NERD-tree'
 " Vim에서 자동완성 기능(Ctrl + P)을 키입력하지 않더라도 자동으로 나타나게 - AutoComplPop
-"Plugin 'AutoComplPop'
+Plugin 'AutoComplPop'
 " 열려있는 소스파일의 클래스, 함수, 변수 정보 창 - Tag List
-"Plugin 'taglist-plus'
+Plugin 'taglist-plus'
 
 " NERD Tree를 왼쪽에 생성
 let NERDTreeWinPos = "left"
@@ -357,3 +362,5 @@ set nofoldenable
 set foldmethod=syntax
 
 set ff=unix
+
+colorscheme jellybeans
