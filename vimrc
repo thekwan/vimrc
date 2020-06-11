@@ -63,7 +63,8 @@ if has("gui_running")
 
 " gVim의 배경테마 설정 "
     "colorscheme desert
-    colorscheme koehler
+    "colorscheme koehler
+    colorscheme jellybeans
 
 " gVim 시작시 크기지정 "
     set lines=30
@@ -84,6 +85,12 @@ nnoremap a :set noimd<CR>a
 nnoremap A :set noimd<CR>A
 nnoremap o :set noimd<CR>o
 nnoremap O :set noimd<CR>O    
+
+" resize split window size.
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>0 :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>9 :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 " 입력모드에서 Ctrl+d로 백스페이스 기능 "
 map! <C-d> <BS>
@@ -188,11 +195,11 @@ map <F4> :q!<CR>
 " F6은 파일 비교하기, Ctrl+F6로 파일 비교하기 해제 "
 "map <F6> :diffthis<CR><C-w><C-w>:diffthis<CR>
 "map <C-F6> :diffoff<CR><C-w><C-w>:diffoff<CR>
-map <F6> :!ctags -R  .<CR><CR>
+"map <F6> :!ctags -R  .<CR><CR>
 
 " F7은 Hex 모드 "
 "map <F7> :%!xxd<CR>
-map <F7> :TlistToggle<CR>
+"map <F7> :TlistToggle<CR>
 
 " F8은 ctags 생성 "
 "map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
@@ -216,7 +223,7 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " F9은 ctags 생성 "
 "map <F9> :set tags=~/opencl/tags/usr_include_CL_tags<CR><CR>
-map <F9> :set tags+=./tags<CR><CR>
+"map <F9> :set tags+=./tags<CR><CR>
 
 " Ctrl+k는 폴딩 접기, Ctrl+j로 폴딩 열기 "
 "map <C-k> v]}zf<CR>
@@ -225,7 +232,7 @@ map <F9> :set tags+=./tags<CR><CR>
 " Gtags commands
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
-map <C-\>^] :GtagsCursor<CR>
+map <C-\><C-]> :GtagsCursor<CR>
 
 "------------------- GTAGS configuration -----------------"
 let mapleader=","
@@ -303,17 +310,12 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Git gutter (vim plugin for git diff display)
-Plugin 'airblade/vim-gitgutter'
-" Etc
-"Plugin 'nanotech/hellybeans.vim'
-Plugin 'vim-airline/vim-airline'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -336,7 +338,11 @@ Plugin 'The-NERD-tree'
 " Vim에서 자동완성 기능(Ctrl + P)을 키입력하지 않더라도 자동으로 나타나게 - AutoComplPop
 Plugin 'AutoComplPop'
 " 열려있는 소스파일의 클래스, 함수, 변수 정보 창 - Tag List
-Plugin 'taglist-plus'
+"Plugin 'taglist-plus'
+" Etc
+Plugin 'vim-airline/vim-arirline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'rstacruz/sparkup'
 
 " NERD Tree를 왼쪽에 생성
 let NERDTreeWinPos = "left"
@@ -345,12 +351,12 @@ let NERDTreeWinPos = "left"
 "nmap <F8> :TlistToggle<CR>
 filetype on
 " Tag list가 사용하는 ctags의 경로 설정
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Inc_Winwidth = 0
-let Tlist_Exit_OnlyWindow = 0
-let Tlist_Auto_Open = 0
+"let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+"let Tlist_Inc_Winwidth = 0
+"let Tlist_Exit_OnlyWindow = 0
+"let Tlist_Auto_Open = 0
 " Tag list 창을 오른쪽으로 생성
-let Tlist_Use_Right_Window = 1
+"let Tlist_Use_Right_Window = 1
 
 set guifont=Liberation\ Mono\ 9
 set guifontwide=Hangang\ 9
@@ -362,5 +368,3 @@ set nofoldenable
 set foldmethod=syntax
 
 set ff=unix
-
-colorscheme jellybeans
